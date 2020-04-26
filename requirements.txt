@@ -1,0 +1,9 @@
+ariadne==0.9
+uvicorn
+docker
+stripe
+aiofiles
+pylint
+motor
+pyjwt
+argon2_cffi

@@ -1,0 +1,51 @@
+type Query {
+    players: String!
+    tps: String!
+    logs(tail: Int): String!
+    missBri(year: Int month: Int day: Int): String!
+    getMessages(chat: String! last: Int!): GetMessagesPayload!
+    login(user: String! password: String!): TokenPayload!
+    token: TokenPayload!
+}
+
+type Subscription {
+    subMessage(chat: String! accessToken: String!): MessagePayload!
+}
+
+type GetMessagesPayload {
+    ok: Boolean!
+    messages: [MessageContent]
+    error: String
+}
+
+type MessageContent {
+    message: String!
+    time: Int!
+    user: String!
+    _id: String!
+}
+
+type Mutation {
+    clearItems: String!
+    payment(token: String! amount: Int! name: String! desc: String! live: Boolean!): String!
+    addMessage(chat: String! message: String!): MessagePayload!
+    createUser(user: String! password: String!): CreateUserPayload!
+}
+
+type CreateUserPayload {
+    ok: Boolean!
+    error: String
+}
+
+type MessagePayload {
+    ok: Boolean
+    message: MessageContent
+    error: String
+}
+
+type TokenPayload {
+    ok: Boolean!
+    error: String
+    access: String
+    refresh: String
+}

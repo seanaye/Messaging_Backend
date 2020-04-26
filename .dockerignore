@@ -1,0 +1,7 @@
+Dockerfile
+.vscode
+.git
+.gitignore
+venv
+__pycache__
+.DS_Store
